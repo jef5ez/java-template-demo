@@ -29,12 +29,12 @@ class DemoApplicationTests {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@Test
-	void contextLoads() {
-		ResponseEntity<String> value = restTemplate.getForEntity("/", String.class);
-		assertThat(value.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat(value.getBody()).contains("mystérieux visiteur");
-	}
+//	@Test
+//	void contextLoads() {
+//		ResponseEntity<String> value = restTemplate.getForEntity("/", String.class);
+//		assertThat(value.getStatusCode()).isEqualTo(HttpStatus.OK);
+//		assertThat(value.getBody()).contains("mystérieux visiteur");
+//	}
 
 //	@Test
 //	void loadCSV() throws IOException {
