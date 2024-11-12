@@ -1,20 +1,33 @@
 <%@ import org.apache.commons.csv.CSVRecord %>
+<%@ import org.springframework.web.util.HtmlUtils %>
 <%@ import java.util.List %>
+<%@ import templates.Navigate %>
+<%@ import templates.Links %>
 
 <%@ params(CSVRecord record, List<String> header, int index, int size) %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Single Record ${index}</title>
+    <%@ include Links %>
+</head>
+<body>
 
 <div>
-<% if (index > 0) {%>
-<button onclick="location.href='/reviews/${index-1}'" type="button">&lt; Previous</button>
-<% } %>
-<button onclick="location.href='/reviews'" type="button">^List^</button>
-<% if (index < size-1) {%>
-<button onclick="location.href='/reviews/${index+1}'" type="button">Next &gt;</button>
-<% } %>
+    <%@ include Navigate(index, size) %>
 </div>
+
 <h1>For Review:</h1>
 <% for (String col: header) { %>
-<h3>${col}</h3>
-<p>${record.get(col)}</p>
+<h3>${HtmlUtils.htmlEscape(col)}</h3>
+<p>${HtmlUtils.htmlEscape(record.get(col))}</p>
 <br>
 <% } %>
+
+<div>
+    <%@ include Navigate(index, size) %>
+</div>
+
+</body>
+</html>

@@ -1,10 +1,12 @@
 <%@ import review.ReviewModel%>
+<%@ import templates.Links %>
 <%@ params(ReviewModel reviews) %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Reviews</title>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+    <%@ include Links %>
 </head>
 <body>
 <div><h1>Reviews</h1></div>

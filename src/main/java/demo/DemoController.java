@@ -46,9 +46,10 @@ public class DemoController {
 
 	@PostMapping("/upload-csv")
 	public RedirectView uploadCsv(@RequestParam("csv") MultipartFile csv,
-								  @RequestParam(value = "mainCol", defaultValue = "0") int mainCol
+								  @RequestParam(value = "mainCol", defaultValue = "0") int mainCol,
+								  @RequestParam(value = "charset", defaultValue = "Cp1252") String charset //windows ansi
 	) throws IOException {
-		Reader reader = new InputStreamReader(csv.getInputStream());
+		Reader reader = new InputStreamReader(csv.getInputStream(), charset);
 		CSVFormat format = CSVFormat.EXCEL.builder().setHeader().setSkipHeaderRecord(true).build();
 		try (CSVParser csvParser = new CSVParser(reader, format)) {
 			List<String> headerNames = csvParser.getHeaderNames();

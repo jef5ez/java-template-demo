@@ -33,6 +33,16 @@
 			<artifactId>commons-csv</artifactId>
 			<version>1.12.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>5.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator-core</artifactId>
+			<version>0.59</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

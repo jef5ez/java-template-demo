@@ -4,5 +4,11 @@
 
 Hello ${model.name}!
 <br>
+
+<div>
+    <p>
+        <a href="reviews">GOTO /reviews</a>
+    </p>
+</div>
 <br>
 You are visitor number ${model.visits}.
