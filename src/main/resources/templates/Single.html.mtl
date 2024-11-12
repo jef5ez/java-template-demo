@@ -1,0 +1,20 @@
+<%@ import org.apache.commons.csv.CSVRecord %>
+<%@ import java.util.List %>
+
+<%@ params(CSVRecord record, List<String> header, int index, int size) %>
+
+<div>
+<% if (index > 0) {%>
+<button onclick="location.href='/reviews/${index-1}'" type="button">&lt; Previous</button>
+<% } %>
+<button onclick="location.href='/reviews'" type="button">^List^</button>
+<% if (index < size-1) {%>
+<button onclick="location.href='/reviews/${index+1}'" type="button">Next &gt;</button>
+<% } %>
+</div>
+<h1>For Review:</h1>
+<% for (String col: header) { %>
+<h3>${col}</h3>
+<p>${record.get(col)}</p>
+<br>
+<% } %>

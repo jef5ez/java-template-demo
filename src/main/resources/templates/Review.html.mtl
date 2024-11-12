@@ -1,0 +1,35 @@
+<%@ import review.ReviewModel%>
+<%@ params(ReviewModel reviews) %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reviews</title>
+</head>
+<body>
+<div><h1>Reviews</h1></div>
+<form enctype="multipart/form-data" method="post" action="/upload-csv">
+    <label for="csv">Choose a profile picture:</label>
+    <input type="file" id="csv" name="csv" accept="text/csv"/>
+    <br>
+    <label for="mainCol">Choose the main column to display (int): </label>
+    <input type="text" id="mainCol" name="mainCol">
+    <div>
+        <button>Submit</button>
+    </div>
+</form>
+
+<% if (reviews == null) { %>
+<div><h2>No data uploaded</h2></div>
+<% } else { %>
+<div><h2>Submitted on: ${reviews.createdOn}</h2></div>
+<% for (int i = 0; i < reviews.records.size(); i++) { %>
+<div>
+    <p>
+        <a href="reviews/${i}">${i} - ${reviews.records.get(i).get(reviews.mainCol)}</a>
+    </p>
+</div>
+<% } %>
+<% } %>
+</body>
+</html>

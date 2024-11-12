@@ -1,4 +1,4 @@
-package demo;
+package view;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
